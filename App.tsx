@@ -1,9 +1,18 @@
 import React from 'react';
-import ContestList from './components/ContestList';
+import { ScrollView, Text, View } from 'react-native';
 
+import ContestList from './components/ContestList';
+import tw from 'twrnc';
+
+console.log('hello world23');
 const App: React.FC = () => {
   return (
-    <ContestList />
+    <ScrollView>
+      <View style={tw`bg-[#0F172A] flex flex-col justify-center items-center`}>
+        <ContestList />
+      </View>
+    </ScrollView>
+
   );
 };
 
