@@ -7,8 +7,8 @@ import tw from 'twrnc';
 console.log('hello world23');
 const App: React.FC = () => {
   return (
-    <ScrollView>
-      <View style={tw`bg-[#0F172A] flex flex-col justify-center items-center`}>
+    <ScrollView style={tw`bg-[#9381ff]`}>
+      <View style={tw` flex flex-col justify-center items-center`}>
         <ContestList />
       </View>
     </ScrollView>
