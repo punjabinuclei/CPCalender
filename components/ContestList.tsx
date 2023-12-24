@@ -39,25 +39,25 @@ const contests = [
 
 
 const ContestList: React.FC = () => {
-    const [contests, setContests] = useState<Contest[]>([]);
+    // const [contests, setContests] = useState<Contest[]>([]);
 
-    useEffect(() => {
-        const loadContests = async () => {
-            try {
-                const data = await fetchData();
-                setContests(data); // Update state with the fetched data
-            } catch (error) {
-                console.error('Error loading contests:', error);
-            }
-        };
+    // useEffect(() => {
+    //     const loadContests = async () => {
+    //         try {
+    //             const data = await fetchData();
+    //             setContests(data); // Update state with the fetched data
+    //         } catch (error) {
+    //             console.error('Error loading contests:', error);
+    //         }
+    //     };
 
-        loadContests();
-    }, []); // Empty dependency array to run the effect only once
+    //     loadContests();
+    // }, []); // Empty dependency array to run the effect only once
 
     return (
-        <ScrollView style={tw`pt-50px`}>
-            <Text style={tw`text-white text-[2.5rem] font-bold tracking-tight text-center`}>CONTEST LIST</Text>
-            <View style={tw`pt-40px`}>
+        <ScrollView style={tw`py-30px`}>
+            <Text style={tw`text-white text-[2rem] font-bold tracking-tight text-center`}>CONTEST LIST</Text>
+            <View style={tw`pt-30px`}>
                 {contests.map((contest) => (
                     <View style={tw`mx-4 py-8 px-4 rounded-2xl bg-[#f8f7ff] mt-4`} key={contest.id}>
                         <Text style={tw`font-bold text-[1rem] text-center text-[#9381ff]`}>{contest.event}</Text>
