@@ -1,10 +1,9 @@
 // ContestList.tsx
 import React, { useEffect, useState } from 'react';
-import { Text, View, ScrollView } from 'react-native';
-import { fetchData } from '../services/api'; // Adjust the path accordingly
+import { ScrollView, Text, View, TouchableWithoutFeedback, Linking } from 'react-native';
 import tw from 'twrnc';
-import { Link } from "react-router-native";
-import { Image } from 'react-native';
+import { fetchData } from '../services/api';
+import { parse, format } from 'date-fns';
 
 interface Contest {
     id: number;
@@ -13,30 +12,58 @@ interface Contest {
     start: string;
     href: string;
     resource: string;
+    end: string;
 }
 
 
 const contests = [
     {
-        id: 1,
-        event: "1st International Olympiad in Informatics. Bulgaria",
-        host: "GFG Codechef",
-        start: "16.05 Tue 05:30",
+        id: 45256482,
+        event: "ProjectEuler+",
+        host: "hackerrank.com",
+        start: "07.07 Mon 21:08",
+        href: "https://hackerrank.com/contests/projecteuler",
+        resource: "hackerrank.com",
+        end: "31.07 Wed 00:00"
     },
     {
-        id: 2,
-        event: "IOI 1989",
-        host: "cphof.org",
-        start: "19.05 Fri 05:30",
+        id: 43439519,
+        event: "Marathon Match Practice: SnakeCharmer",
+        host: "topcoder.com",
+        start: "04.05 Tue 17:08",
+        href: "https://topcoder.com/challenges/971eb6a9-59d3-49da-a465-e9b70f1ce019",
+        resource: "topcoder.com",
+        end: "04.05 Sat 17:14"
     },
     {
-        id: 3,
-        event: "2nd International Olympiad in Informatics. Soviet Union",
-        host: "stats.ioinformatics.org",
-        start: "15.07 Sun 05:30",
+        id: 42153773,
+        event: "JFP12",
+        host: "spoj.com",
+        start: "27.03 Mon 16:30",
+        href: "https://www.spoj.com/JFP12/",
+        resource: "spoj.com",
+        end: "31.03 Sun 16:30"
     },
+    {
+        id: 42623949,
+        event: "CAFA 5 Protein Function Prediction [biology]",
+        host: "kaggle.com",
+        start: "19.04 Wed 01:34",
+        href: "https://www.kaggle.com/competitions/cafa-5-protein-function-prediction",
+        resource: "kaggle.com",
+        end: "22.12 Fri 05:29"
+    },
+    {
+        id: 48382040,
+        event: "CharmHealth CodeRx Hackathon. Hackathon. Online",
+        host: "hackerearth.com",
+        start: "13.09 Wed 21:30",
+        href: "https://charmhealth.hackerearth.com/",
+        resource: "hackerearth.com",
+        end: "15.01 Mon 13:25"
+    },
+    // Add more contests as needed
 ];
-
 
 const ContestList: React.FC = () => {
     // const [contests, setContests] = useState<Contest[]>([]);
@@ -54,25 +81,32 @@ const ContestList: React.FC = () => {
     //     loadContests();
     // }, []); // Empty dependency array to run the effect only once
 
+
+    function formatDateString(dateString: string): string {
+        // Parse the date string
+        const date = parse(dateString, 'dd.MM EEE HH:mm', new Date());
+
+        // Format the date
+        return format(date, "dd/MM/yyyy HH:mm");
+    }
+
     return (
         <ScrollView style={tw`py-30px`}>
-            <Text style={tw`text-white text-[2rem] font-bold tracking-tight text-center`}>CONTEST LIST</Text>
+            <Text style={[tw`text-[#C62E65] text-[2rem]  text-center`, { fontFamily: 'Roboto-Bold' }]}>CONTEST LIST</Text>
             <View style={tw`pt-30px`}>
                 {contests.map((contest) => (
-                    <View style={tw`mx-4 py-8 px-4 rounded-2xl bg-[#f8f7ff] mt-4`} key={contest.id}>
-                        <Text style={tw`font-bold text-[1rem] text-center text-[#9381ff]`}>{contest.event}</Text>
-                        <Text style={tw`font-medium text-[0.8rem] text-center text-[#9381ff]`}>{contest.start}</Text>
-                        <Text style={tw`text-center text-[#9381ff]`}>{contest.host}</Text>
-                        {/* <View>
-                            resource = {contest.resource};
-                            const re=(".");
-                            const newResource = resource.replace(re, "_");
-                            <Image
-                                source={require(`https://clist.by//media/sizes/32x32/img/resources/${newResource}.png`)}
-                                style={{ width: 16, height: 16 }}
-                            />
-                        </View> */}
-                    </View>
+                    <TouchableWithoutFeedback onPress={() => Linking.openURL(contest.href)}>
+                        <View style={tw`mx-4 py-8 px-4 rounded-2xl bg-[#2F1847] mt-4`} key={contest.id}>
+                            <Text style={[tw`text-center text-[#D63AF9]`, { fontFamily: 'Roboto-Black' }]}>
+                                {contest.host.toUpperCase().slice(0, -4)}
+                            </Text>
+                            <Text style={tw`font-medium text-[0.7rem] text-center`}>{formatDateString(contest.start)}</Text>
+                            <Text style={tw`font-medium text-[0.7rem] text-center`}>{formatDateString(contest.end)}</Text>
+                            <Text style={tw`font-bold text-[1rem] text-center `}>
+                                {contest.event.length > 5 ? `${contest.event.slice(0, 25)}...` : contest.event}
+                            </Text>
+                        </View>
+                    </TouchableWithoutFeedback>
                 ))}
             </View>
         </ScrollView>
