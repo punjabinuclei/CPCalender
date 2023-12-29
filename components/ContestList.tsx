@@ -1,6 +1,6 @@
 // ContestList.tsx
-import React, { useEffect, useState } from 'react';
-import { ScrollView, Text, View, TouchableWithoutFeedback, Linking } from 'react-native';
+import React, { useEffect, useState, } from 'react';
+import { ScrollView, Text, View, TouchableWithoutFeedback, Linking, StyleSheet } from 'react-native';
 import tw from 'twrnc';
 import { fetchData } from '../services/api';
 import { parse, format } from 'date-fns';
@@ -92,19 +92,25 @@ const ContestList: React.FC = () => {
 
     return (
         <ScrollView style={tw`py-30px`}>
-            <Text style={[tw`text-[#C62E65] text-[2rem]  text-center`, { fontFamily: 'Roboto-Bold' }]}>CONTEST LIST</Text>
+            <Text style={[tw`text-[#fff] text-[2rem]  text-center`, { fontFamily: 'Roboto-Bold' }]}>CONTEST LIST</Text>
             <View style={tw`pt-30px`}>
                 {contests.map((contest) => (
-                    <TouchableWithoutFeedback onPress={() => Linking.openURL(contest.href)}>
-                        <View style={tw`mx-4 py-8 px-4 rounded-2xl bg-[#2F1847] mt-4`} key={contest.id}>
-                            <Text style={[tw`text-center text-[#D63AF9]`, { fontFamily: 'Roboto-Black' }]}>
-                                {contest.host.toUpperCase().slice(0, -4)}
-                            </Text>
-                            <Text style={tw`font-medium text-[0.7rem] text-center`}>{formatDateString(contest.start)}</Text>
-                            <Text style={tw`font-medium text-[0.7rem] text-center`}>{formatDateString(contest.end)}</Text>
-                            <Text style={tw`font-bold text-[1rem] text-center `}>
-                                {contest.event.length > 5 ? `${contest.event.slice(0, 25)}...` : contest.event}
-                            </Text>
+                    <TouchableWithoutFeedback key={contest.id} onPress={() => Linking.openURL(contest.href)}>
+                        <View style={tw`mx-4 py-8 px-4  rounded-2xl bg-[#f9b17a] mt-4`} >
+                            <View style={styles.container}>
+                                <Text style={[tw`text-center text-[1.2rem] text-[#424769] `, { fontFamily: 'Roboto-Black' }]}>
+                                    {contest.host.toUpperCase().slice(0, -4)}
+                                </Text>
+                                <View style={tw`pl-3`}>
+                                    <Text style={tw`font-medium text-[#424769] text-[0.7rem] text-center`}>{formatDateString(contest.start)}</Text>
+                                    <Text style={tw`font-medium text-[#424769] text-[0.7rem] text-center`}>{formatDateString(contest.end)}</Text>
+                                </View>
+                            </View>
+                            <View >
+                                <Text style={tw`font-bold text-[#424769] text-[0.9rem] text-center mt-1`}>
+                                    {contest.event.length > 5 ? `${contest.event.slice(0, 25)}...` : contest.event}
+                                </Text>
+                            </View>
                         </View>
                     </TouchableWithoutFeedback>
                 ))}
@@ -114,3 +120,15 @@ const ContestList: React.FC = () => {
 };
 
 export default ContestList;
+
+
+
+const styles = StyleSheet.create({
+    container: {
+        display: 'flex',
+        flexDirection: 'row',
+        flex: 1,
+        justifyContent: 'space-between',
+        alignItems: 'flex-start',
+    },
+});

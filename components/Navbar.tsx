@@ -12,11 +12,11 @@ const Navbar: React.FC = () => {
     }
 
     return (
-        <View style={tw`bg-[#F9B3D1]   w-full mx-[1rem] px-[1rem] py-[2rem]`}>
+        <View style={tw`bg-[#424769] w-full mx-[1rem] px-[1rem] py-[2rem]`}>
             <View style={styles.container}>
-                <Iconify icon="mingcute:code-fill" color="#C62E65" width="44" height="44" />
-                <Text style={[tw`text-[1.8rem] text-center  tracking-tight text-[#C62E65]`, { fontFamily: 'Roboto-Black' }]}>HACK</Text>
-                <TouchableOpacity onPress={handleButtonPress}><Iconify icon="ei:navicon" color="#C62E65" width="44" height="44" /></TouchableOpacity>
+                <Iconify icon="mingcute:code-fill" color="#f9b17a" width="44" height="44" />
+                <Text style={[tw`text-[2.9rem] text-center  tracking-tight text-[#f9b17a]`, { fontFamily: 'Roboto-Black' }]}>HACK</Text>
+                <TouchableOpacity onPress={handleButtonPress}><Iconify icon="ei:navicon" color="#f9b17a" width="44" height="44" /></TouchableOpacity>
             </View>
         </View>
     );

@@ -12,9 +12,9 @@ const Footer: React.FC = () => {
     }
 
     return (
-        <View style={[tw`bg-[#F9B3D1]  w-full mx-[1rem] px-[1rem] py-[2rem]`,styles.container]}>
-            <Text style={[tw`text-2xl text-center font-bold tracking-widest text-[#C62E65]`, { fontFamily: 'Roboto-Black' }]}>FOOTER</Text>
-            <TouchableOpacity onPress={handleButtonPress}><Iconify icon="mingcute:code-fill" color="#C62E65" width="44" height="44" /></TouchableOpacity>
+        <View style={[tw`bg-[#424769] w-full mx-[1rem] mt-[2rem] px-[1rem] py-[2rem]`,styles.container]}>
+            <Text style={[tw`text-[2rem] text-center  tracking-widest text-[#f9b17a]`, { fontFamily: 'Roboto-Black' }]}>HACK</Text>
+            <TouchableOpacity onPress={handleButtonPress}><Iconify icon="mingcute:code-fill" color="#f9b17a" width="44" height="44" /></TouchableOpacity>
         </View>
     );
 };
