@@ -92,22 +92,23 @@ const ContestList: React.FC = () => {
 
     return (
         <ScrollView style={tw`py-30px w-[320px]`}>
+            <Text style={[tw`text-[#fff] text-[1rem] pb-8  text-center`, { fontFamily: 'Roboto-Light' }]}>"It’s not a bug; it’s an undocumented feature"</Text>
             <Text style={[tw`text-[#fff] text-[2rem]  text-center`, { fontFamily: 'Roboto-Bold' }]}>CONTEST LIST</Text>
-            <View style={tw`pt-30px`}>
+            <View style={tw`mt-50px`}>
                 {contests.map((contest) => (
                     <TouchableWithoutFeedback key={contest.id} onPress={() => Linking.openURL(contest.href)}>
-                        <View style={tw`mx-4 py-8 px-4  rounded-2xl bg-[#f9b17a] mt-4`} >
+                        <View style={tw`mx-4 py-4 px-4  rounded-2xl bg-[#FF824D] my-2`} >
                             <View style={styles.container}>
-                                <Text style={[tw`text-center text-[1.1rem] text-[#424769] `, { fontFamily: 'Roboto-Black' }]}>
-                                {contest.host.toUpperCase().slice(0, 12).split('.')[0]}
+                                <Text style={[tw`text-center text-[1.1rem] text-[#161716] `, { fontFamily: 'Roboto-Black' }]}>
+                                    {contest.host.toUpperCase().slice(0, 12).split('.')[0]}
                                 </Text>
                                 <View style={tw`pl-3`}>
-                                    <Text style={tw`font-medium text-[#424769] text-[0.7rem] text-center`}>{formatDateString(contest.start)}</Text>
-                                    <Text style={tw`font-medium text-[#424769] text-[0.7rem] text-center`}>{formatDateString(contest.end)}</Text>
+                                    <Text style={tw`font-medium text-[#161716] text-[0.7rem] text-center`}>{formatDateString(contest.start)}</Text>
+                                    <Text style={tw`font-medium text-[#161716] text-[0.7rem] text-center`}>{formatDateString(contest.end)}</Text>
                                 </View>
                             </View>
                             <View >
-                                <Text style={tw`font-bold text-[#424769] text-[0.9rem] text-center mt-1`}>
+                                <Text style={tw`font-bold text-[#161716] text-[0.9rem] text-center mt-1`}>
                                     {contest.event.length > 5 ? `${contest.event.slice(0, 25)}...` : contest.event}
                                 </Text>
                             </View>
