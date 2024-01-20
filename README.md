@@ -1,79 +1,73 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Frontend Readme
 
-# Getting Started
+# Contest List App
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+Welcome to the Contest List App, a React Native application designed to showcase upcoming coding contests from various platforms. This app provides a clean and user-friendly interface to browse through contests, view details, and navigate to the respective contest pages.
 
-## Step 1: Start the Metro Server
+## Features
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+- **Contest List:** View a curated list of upcoming coding contests from different hosting platforms.
+- **Clickable Links:** Easily navigate to the contest page on the respective hosting platform by clicking on each contest.
+- **Date Formatting:** The app uses date-fns library to format contest start and end dates for a clear and concise presentation.
 
-To start Metro, run the following command from the _root_ of your React Native project:
+## Screenshots
 
-```bash
-# using npm
-npm start
+![screenshots/contest_list.png](screenshots/contest_list.png)
 
-# OR using Yarn
-yarn start
-```
+## Installation
 
-## Step 2: Start your Application
+1. Clone the repository:
+    
+    ```bash
+    git clone <https://github.com/yourusername/contest-list-app.git>
+    cd contest-list-app
+    
+    ```
+    
+2. Install dependencies:
+    
+    ```bash
+    npm install
+    
+    ```
+    
+3. Run the app on an emulator or a connected device:
+    
+    ```bash
+    npx react-native run-android   # for Android
+    npx react-native run-ios       # for iOS
+    
+    ```
+    
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+## Usage
 
-### For Android
+- Launch the app on your mobile device or emulator.
+- Explore the contest list and click on a contest to view more details.
 
-```bash
-# using npm
-npm run android
+## Customization
 
-# OR using Yarn
-yarn android
-```
+- Modify the `contests` array in `ContestList.tsx` to add or remove contests.
+- Customize the app's appearance by adjusting styles in the `ContestList.tsx` file.
 
-### For iOS
+## Dependencies
 
-```bash
-# using npm
-npm run ios
+- [React Native](https://reactnative.dev/)
+- [date-fns](https://date-fns.org/)
+- [twrnc](https://github.com/dvkndn/twrnc) (Tailwind-inspired styles for React Native)
 
-# OR using Yarn
-yarn ios
-```
+## Contributing
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+Feel free to contribute to the development of this app by opening issues or submitting pull requests. Make sure to follow the [contributing guidelines](notion://www.notion.so/punjabinuclei/CONTRIBUTING.md).
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+## License
 
-## Step 3: Modifying your App
+This project is licensed under the MIT License - see the [LICENSE](notion://www.notion.so/punjabinuclei/LICENSE) file for details.
 
-Now that you have successfully run the app, let's modify it.
+## Acknowledgments
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+- [React Native Community](https://github.com/react-native-community)
+- [date-fns](https://date-fns.org/)
+- [twrnc](https://github.com/dvkndn/twrnc)
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Thank you for using and contributing to the Contest List App!
