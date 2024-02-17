@@ -1,5 +1,6 @@
 {
     "cSpell.words": [
         "Codeforces"
-    ]
+    ],
+    "java.compile.nullAnalysis.mode": "disabled"
 }
