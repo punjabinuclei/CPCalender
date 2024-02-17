@@ -66,20 +66,20 @@ const contests = [
 ];
 
 const ContestList: React.FC = () => {
-    // const [contests, setContests] = useState<Contest[]>([]);
+    const [contests, setContests] = useState<Contest[]>([]);
 
-    // useEffect(() => {
-    //     const loadContests = async () => {
-    //         try {
-    //             const data = await fetchData();
-    //             setContests(data); // Update state with the fetched data
-    //         } catch (error) {
-    //             console.error('Error loading contests:', error);
-    //         }
-    //     };
+    useEffect(() => {
+        const loadContests = async () => {
+            try {
+                const data = await fetchData();
+                setContests(data); // Update state with the fetched data
+            } catch (error) {
+                console.error('Error loading contests:', error);
+            }
+        };
 
-    //     loadContests();
-    // }, []); // Empty dependency array to run the effect only once
+        loadContests();
+    }, []); // Empty dependency array to run the effect only once
 
 
     function formatDateString(dateString: string): string {
