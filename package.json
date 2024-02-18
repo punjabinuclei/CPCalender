@@ -15,6 +15,8 @@
     "pod-install": "^0.1.39",
     "react": "18.2.0",
     "react-native": "0.72.7",
+    "react-native-add-calendar-event": "^5.0.0",
+    "react-native-flash-message": "^0.4.2",
     "react-native-iconify": "^0.2.10",
     "react-native-notifications": "^5.1.0",
     "react-native-svg": "^14.1.0",
